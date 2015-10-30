@@ -144,7 +144,7 @@ class MorphologyApi
         // form params
         if ($input_file !== null) {
             if (function_exists('curl_file_create')) {
-                $formParams['inputFile'] = new \CurlFile($input_file->getRealPath(), "text/plain", "test.txt");
+                $formParams['inputFile'] = new \CurlFile($input_file->getRealPath());
             }
             else
                 $formParams['inputFile'] = '@' . $this->apiClient->getSerializer()->toFormValue($input_file);
@@ -257,7 +257,7 @@ class MorphologyApi
         // form params
         if ($input_file !== null) {
             if (function_exists('curl_file_create')) {
-                $formParams['inputFile'] = new \CurlFile($input_file->getRealPath(), "text/plain", "test.txt");
+                $formParams['inputFile'] = new \CurlFile($input_file->getRealPath());
             }
             else
                 $formParams['inputFile'] = '@' . $this->apiClient->getSerializer()->toFormValue($input_file);
@@ -370,7 +370,7 @@ class MorphologyApi
         // form params
         if ($input_file !== null) {
             if (function_exists('curl_file_create')) {
-                $formParams['inputFile'] = new \CurlFile($input_file->getRealPath(), "text/plain", "test.txt");
+                $formParams['inputFile'] = new \CurlFile($input_file->getRealPath());
             }
             else
                 $formParams['inputFile'] = '@' . $this->apiClient->getSerializer()->toFormValue($input_file);
