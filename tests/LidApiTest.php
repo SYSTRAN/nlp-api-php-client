@@ -16,9 +16,13 @@ class LidApiTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->config = new \Systran\Client\Configuration();
+        if (!file_exists(__DIR__ . '/../apiKey.txt'))
+            throw new Exception('﻿"To properly run the tests, please add an apiKey.txt file containing your api key at the library root folder or edit the test file with your key"');
         $api_key = new SplFileObject(__DIR__ . '/../apiKey.txt');
         $this->config->setApiKey("key",$api_key->fgets());
         $this->config->setHost("https://platform.systran.net:8904");
+        if(!$this->config->getApiKey("key"))
+            throw new Exception("No api key found, please check your apiKey.txt file");
         $this->api_client = new \Systran\Client\ApiClient($this->config);
     }
 
